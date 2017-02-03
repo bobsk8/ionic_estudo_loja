@@ -1,0 +1,24 @@
+<ion-view>
+    <ion-nav-title>Cadastro Produto</ion-nav-title>
+    <ion-content>
+        <form ng-submit="cadastro()">
+			<div class="list">
+				<label class="item item-input item-stacked-label">
+			    	<span class="input-label">Produto</span>
+			    	<input type="text" ng-model="produto.nomeProduto" placeholder="Nome do produto">
+			  	</label>
+			  	<label class="item item-input item-stacked-label">
+			    	<span class="input-label">Preco</span>
+			    	<input type="number" ng-model="produto.preco" placeholder="Preço do produto">
+			  	</label>
+			  	<label class="item item-input item-stacked-label">
+			    	<span class="input-label">Quantidade</span>
+			    	<input type="number" ng-model="produto.quantidade" placeholder="Quantidade do produto">
+			  	</label>
+			</div>
+			<button class="button button-full button-positive" type="submit">
+				Enviar
+			</button>
+        </form>
+    </ion-content>    
+</ion-view>

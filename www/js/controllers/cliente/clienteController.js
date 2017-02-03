@@ -1,4 +1,4 @@
-angular.module('starter').controller('cadastroController',function($scope){
+angular.module('starter').controller('clienteController',function($scope){
 
 	$scope.cliente = {};
 
