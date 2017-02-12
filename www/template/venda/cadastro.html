@@ -1,24 +1,29 @@
 <ion-view>
-    <ion-nav-title>Cadastro Cliente</ion-nav-title>
+    <ion-nav-title>Cadastro Vendas</ion-nav-title>
     <ion-content>
         <form ng-submit="cadastro()">
 			<div class="list">
 				<label class="item item-input item-stacked-label">
-			    	<span class="input-label">Nome</span>
-			    	<input type="text" ng-model="cliente.nome" placeholder="nome">
+			    	<span class="input-label">Nome do Cliente</span>
+			    	<input type="text" ng-model="venda.nomeCliente" placeholder="nome">
 			  	</label>
 			  	<label class="item item-input item-stacked-label">
-			    	<span class="input-label">CPF</span>
-			    	<input type="text" ng-model="cliente.cpf" placeholder="CPF">
+			    	<span class="input-label">Produto</span>
+			    	<input type="text" ng-model="venda.produto" placeholder="produto">
 			  	</label>
 			  	<label class="item item-input item-stacked-label">
-			    	<span class="input-label">Nascimento</span>
-			    	<input type="date" ng-model="cliente.nascimento">
+			    	<span class="input-label">Preco</span>
+			    	<input type="text" ng-model="venda.preco">
 			  	</label>
 			</div>
 			<button class="button button-full button-positive" type="submit">
 				Enviar
 			</button>
         </form>
+		<ul class="list">
+			<li class="item" ng-repeat="venda in vendas">
+				{{venda.nomeCliente}} - {{venda.produto}} - {{venda.preco}}
+			</li>
+		</ul>
     </ion-content>    
 </ion-view>
