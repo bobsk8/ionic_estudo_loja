@@ -1,29 +1,38 @@
-angular.module('starter').controller('vendaController',function($scope,$ionicPopup,$state){
+angular.module('starter').controller('vendaController',function($scope,$ionicPopup,$state,Venda){
 
 	$scope.venda = {};
-
-	$scope.vendas = [
-		{nomeCliente: 'Rodrigo',produto:'Alface',preco:1.5},
-		{nomeCliente: 'Alberto',produto:'Mouse',preco:21.5},
-		{nomeCliente: 'Lilian',produto:'Celular',preco:1000.5},
-		{nomeCliente: 'Maria',produto:'Feijão',preco:3.5}
-	]
+	$scope.vendas = [];
 
 	$scope.cadastro = function (){
-		if($scope.venda.nomeCliente!=undefined && $scope.venda.produto!=undefined
-			&& $scope.venda.preco!=undefined){
-				$scope.vendas.push($scope.venda);
-				popupSucesso($scope.venda.nomeCliente);
-				$scope.venda = {};
+		if(!!$scope.venda.nome && !!$scope.venda.valor){
+				$scope.venda.id = 0;
+
+			Venda
+				.create($scope.venda)
+				.$promise
+				.then(function (data) {
+					$scope.venda = '';					
+				});
+				popupSucesso($scope.venda.nome);
 			}
+			$scope.getVendas();
 	}
 
-	function popupSucesso(nomeCliente){
+	$scope.getVendas = function(){
+		Venda.find().$promise
+		.then(function(datas){
+			$scope.vendas = datas;
+		});	
+	}
+
+	$scope.getVendas();
+
+	function popupSucesso(nomeVenda){
 		$ionicPopup.alert({
-            title: 'Parabéns ',
-            template: 'Sua venda foi cadastrada com sucesso.'
+            title: 'Parabéns ' + nomeVenda,
+            template: 'Seu cadastro foi realizado com sucesso.'
 		}).then(function(){
-			$state.go('');
+			//$state.go('');
 		});
 	}
 });

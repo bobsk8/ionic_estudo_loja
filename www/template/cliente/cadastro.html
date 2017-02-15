@@ -20,5 +20,10 @@
 				Enviar
 			</button>
         </form>
+		<ul class="list">
+			<li class="item" ng-repeat="cliente in clientes">
+				{{cliente.nome}} - {{cliente.cpf}}
+			</li>
+		</ul>
     </ion-content>    
 </ion-view>

@@ -16,5 +16,10 @@
 				Enviar
 			</button>
         </form>
+		<ul class="list">
+			<li class="item" ng-repeat="produto in produtos">
+				{{produto.nome}} - {{produto.valor}}
+			</li>
+		</ul>
     </ion-content>    
 </ion-view>
